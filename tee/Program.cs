@@ -8,12 +8,12 @@ List<StreamWriter> outputWriters = new();
 try {
     // Open all the output files for writing.
     foreach (string outputFile in args) {
-        StreamWriter writer = new(outputFile);
+        StreamWriter writer = new(outputFile,append:true);
         outputWriters.Add(writer);
     }
 
     // Read from standard input and write to standard output and output files.
-    string inputLine;
+    string? inputLine;
     while ((inputLine = Console.ReadLine()) != null) {
         Console.WriteLine(inputLine);
         foreach (StreamWriter writer in outputWriters) {
